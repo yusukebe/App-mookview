@@ -30,7 +30,7 @@ sub local_or_share_path {
     my $path = path(@$p);
     return $path if $path->exists;
     try {
-        $path = path(dist_dir('App-mookview', @$p));
+        $path = path(dist_dir('App-mookview'), @$p);
     };
     return $path;
 }
