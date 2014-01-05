@@ -9,6 +9,7 @@ use Text::Xslate qw/mark_raw/;
 use File::ShareDir qw/dist_dir/;
 use Plack::App::Directory;
 use Try::Tiny;
+use Encode;
 
 our $VERSION = "0.01";
 
@@ -58,7 +59,7 @@ sub return_css {
     my $local_path = $self->local_or_share_path([qw/share static css/, $name]);
     return $self->return_404 unless $local_path;
     my $css = $local_path->slurp();
-    return [200, [ 'Content-Type' => 'text/css', 'Content-Length' => length $css ], [ $css ] ];
+    return [200, [ 'Content-Type' => 'text/css', 'Content-Length' => length $css ], [ encode_utf8($css) ] ];
 }
 
 sub return_markdown {
@@ -76,7 +77,7 @@ sub return_markdown {
     }
     $content = $self->add_markdown_to_html($content, $stock);
     my $html = $self->{xslate}->render('preview.tx', { content => mark_raw($content) });
-    return [200, [ 'Content-Type' => 'text/html', 'Content-Length' => length $html ], [ $html ] ];
+    return [200, [ 'Content-Type' => 'text/html', 'Content-Length' => length $html ], [ encode_utf8($html) ] ];
 }
 
 sub add_markdown_to_html {
