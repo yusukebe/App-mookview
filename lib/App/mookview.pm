@@ -69,7 +69,7 @@ sub return_markdown {
     my ($self, $path) = @_;
     my $text = $self->{file_path}->slurp_utf8();
     my $stock = '';   my $page = 1;  my $content = '';
-    my $limit = 1100;
+    my $limit = 1000;
     for my $t (split /\n/, $text) {
         $stock .= $t . "\n";
         if (length $stock > $limit) {
