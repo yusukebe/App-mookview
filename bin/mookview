@@ -1,0 +1,13 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use App::mookview;
+use Plack::Runner;
+
+my $mookview = App::mookview->new(pop @ARGV);
+my $app = $mookview->psgi_app();
+
+my $runner = Plack::Runner->new;
+$runner->parse_options(@ARGV);
+$runner->run($app);
+
