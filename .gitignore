@@ -25,3 +25,5 @@ cover_db/
 MYMETA.*
 
 /App-mookview-*
+
+.sass-cache/
