@@ -4,9 +4,12 @@ use strict;
 use warnings;
 use Plack::Request;
 use Path::Tiny qw/path/;
-use Text::Markdown qw/markdown/;
+use Text::Markdown::Hoedown qw/markdown/;
 use Text::Xslate qw/mark_raw/;
+use Number::Format qw/format_number/;
 use File::ShareDir qw/dist_dir/;
+use HTML::TokeParser;
+use HTML::Entities qw/encode_entities/;
 use Plack::App::Directory;
 use Try::Tiny;
 use Encode;
@@ -64,25 +67,28 @@ sub return_css {
 
 sub return_markdown {
     my ($self, $path) = @_;
-    my $text = $self->{file_path}->slurp_utf8;
+    my $text = $self->{file_path}->slurp_utf8();
     my $stock = '';   my $page = 1;  my $content = '';
     my $limit = 1100;
-    for my $t ( $text =~ m!(.*\n)$!gm) {
-        $stock .= $t;
+    for my $t (split /\n/, $text) {
+        $stock .= $t . "\n";
         if (length $stock > $limit) {
-            $content = $self->add_markdown_to_html($content, $stock);
+            $content = $self->add_markdown_to_html($content, $stock, $page);
             $stock = '';
             $page++;
         }
     }
-    $content = $self->add_markdown_to_html($content, $stock);
-    my $html = $self->{xslate}->render('preview.tx', { content => mark_raw($content) });
+    $content = $self->add_markdown_to_html($content, $stock, $page);
+    my $length = format_number(length $text);
+    my $html = $self->{xslate}->render('preview.tx', { content => mark_raw($content), length => $length });
     return [200, [ 'Content-Type' => 'text/html', 'Content-Length' => length $html ], [ encode_utf8($html) ] ];
 }
 
 sub add_markdown_to_html {
-    my ($self, $html, $markdown) = @_;
-    $html .= '<div class="page">' . markdown($markdown) . '</div>';
+    my ($self, $html, $markdown, $page) = @_;
+    $html .= '<div class="page">' . markdown($markdown) . "</div>\n";
+    $html .= '<div class="clear"></div>' . "\n";
+    $html .= "<div class=\"page-number\">$page</div>\n";
     return $html;
 }
 
