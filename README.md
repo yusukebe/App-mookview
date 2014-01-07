@@ -5,7 +5,7 @@ App::mookview - View Markdown texts as a "Mook-Book" style
 
 # SYNOPSIS
 
-    mookview text.md
+    mookview [plackup options] markdown_text.md
 
 # DESCRIPTION
 
