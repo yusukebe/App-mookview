@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "View Markdown texts as a \"Mook-Book\"",
    "author" : [
       "Yusuke Wada <yusuke@kamawada.com>"
    ],
@@ -44,7 +44,6 @@
       "runtime" : {
          "requires" : {
             "File::ShareDir" : "0",
-            "HTML::Parser" : "0",
             "Number::Format" : "0",
             "Path::Tiny" : "0",
             "Plack" : "0",

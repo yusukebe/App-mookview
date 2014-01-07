@@ -1,15 +1,18 @@
 
 # NAME
 
-App::mookview - It's new $module
+App::mookview - View Markdown texts as a "Mook-Book"
 
 # SYNOPSIS
 
     use App::mookview;
 
+    my $mookview = App::mookview->new('text.md');
+    my $app = $mookview->psgi_app();
+
 # DESCRIPTION
 
-App::mookview is ...
+App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mookbook".
 
 # LICENSE
 
