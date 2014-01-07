@@ -17,9 +17,9 @@ our $VERSION = "0.01";
 sub new {
     my $class = shift;
     my $self = bless {}, $class;
-    my $name = shift or die "Markdown file path is required";
+    my $name = shift or return;
     my $file_path = path($name);
-    die "Path: $file_path is not a file or does not exist" if !$file_path;
+    return unless $file_path->is_file();
     $self->{file_path} = $file_path;
     $self->{xslate} = Text::Xslate->new(
         path => $self->local_or_share_path( [qw/share templates/] )
@@ -112,14 +112,11 @@ __END__
 
 =head1 NAME
 
-App::mookview - View Markdown texts as a "Mook-Book"
+App::mookview - View Markdown texts as a "Mook-Book" style
 
 =head1 SYNOPSIS
 
-    use App::mookview;
-
-    my $mookview = App::mookview->new('text.md');
-    my $app = $mookview->psgi_app();
+    mookview [plackup options] markdown_text.md
 
 =head1 DESCRIPTION
 

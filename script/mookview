@@ -3,10 +3,10 @@ use strict;
 use warnings;
 use App::mookview;
 use Plack::Runner;
+use Pod::Usage qw/pod2usage/;
 
-my $mookview = App::mookview->new(pop);
+my $mookview = App::mookview->new(pop) or pod2usage(0);
 my $app = $mookview->psgi_app();
-
 my $runner = Plack::Runner->new;
 $runner->parse_options(@ARGV);
 $runner->run($app);
@@ -21,7 +21,7 @@ mookview - run a web application showing Markdown texts as a "Mook-book"
 
 =head1 SYNOPSIS
 
-$ mookview text.md
+    mookview [plackup options] markdown_text.md
 
 =head1 LICENSE
 

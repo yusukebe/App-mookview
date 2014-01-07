@@ -1,14 +1,11 @@
 [![Build Status](https://travis-ci.org/yusukebe/App-mookview.png?branch=master)](https://travis-ci.org/yusukebe/App-mookview)
 # NAME
 
-App::mookview - View Markdown texts as a "Mook-Book"
+App::mookview - View Markdown texts as a "Mook-Book" style
 
 # SYNOPSIS
 
-    use App::mookview;
-
-    my $mookview = App::mookview->new('text.md');
-    my $app = $mookview->psgi_app();
+    mookview text.md
 
 # DESCRIPTION
 
