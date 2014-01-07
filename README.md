@@ -12,7 +12,7 @@ App::mookview - View Markdown texts as a "Mook-Book"
 
 # DESCRIPTION
 
-App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mookbook".
+App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-book".
 
 # LICENSE
 

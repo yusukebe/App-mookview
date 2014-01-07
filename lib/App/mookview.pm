@@ -66,6 +66,7 @@ sub return_css {
 sub return_markdown {
     my ($self, $path) = @_;
     my $text = $self->{file_path}->slurp_utf8();
+    $text = $self->filter_markdown($text);
     my $stock = '';   my $page = 1;  my $content = '';
     my $limit = 1000;
     for my $t (split /\n/, $text) {
@@ -79,7 +80,21 @@ sub return_markdown {
     $content = $self->add_markdown_to_html($content, $stock, $page);
     my $length = format_number(length $text);
     my $html = $self->{xslate}->render('preview.tx', { content => mark_raw($content), length => $length });
-    return [200, [ 'Content-Type' => 'text/html', 'Content-Length' => length $html ], [ encode_utf8($html) ] ];
+    $html = encode_utf8($html);
+    return [200, [
+        'Content-Type' => 'text/html; charset=utf8',
+        'Content-Length' => length $html,
+    ], [ $html ] ];
+}
+
+sub filter_markdown {
+    my ($self, $markdown) = @_;
+    $markdown =~ s!^```.*?\n(.+?)\n```.*?$!
+        my $code = '';
+        $code .= "    $_\n" for split /\n/, $1;
+        $code;
+    !gmse;
+    return $markdown;
 }
 
 sub add_markdown_to_html {
