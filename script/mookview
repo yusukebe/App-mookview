@@ -4,10 +4,35 @@ use warnings;
 use App::mookview;
 use Plack::Runner;
 
-my $mookview = App::mookview->new(pop @ARGV);
+my $mookview = App::mookview->new(shift);
 my $app = $mookview->psgi_app();
 
 my $runner = Plack::Runner->new;
 $runner->parse_options(@ARGV);
 $runner->run($app);
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+mookview - run a web application showing Markdown texts as a "Mookbook"
+
+=head1 SYNOPSIS
+
+$ mookview text.md
+
+=head1 LICENSE
+
+Copyright (C) Yusuke Wada.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+Yusuke Wada E<lt>yusuke@kamawada.comE<gt>
+
+=cut
 

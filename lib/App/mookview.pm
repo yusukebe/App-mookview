@@ -8,8 +8,6 @@ use Text::Markdown::Hoedown qw/markdown/;
 use Text::Xslate qw/mark_raw/;
 use Number::Format qw/format_number/;
 use File::ShareDir qw/dist_dir/;
-use HTML::TokeParser;
-use HTML::Entities qw/encode_entities/;
 use Plack::App::Directory;
 use Try::Tiny;
 use Encode;
@@ -99,15 +97,18 @@ __END__
 
 =head1 NAME
 
-App::mookview - It's new $module
+App::mookview - View Markdown texts as a "Mook-Book"
 
 =head1 SYNOPSIS
 
     use App::mookview;
 
+    my $mookview = App::mookview->new('text.md');
+    my $app = $mookview->psgi_app();
+
 =head1 DESCRIPTION
 
-App::mookview is ...
+App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mookbook".
 
 =head1 LICENSE
 
