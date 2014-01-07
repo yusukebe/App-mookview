@@ -88,7 +88,6 @@ sub add_markdown_to_html {
     my ($self, $html, $markdown, $page) = @_;
     $html .= '<div class="page">' . markdown($markdown) . "</div>\n";
     $html .= "<div class=\"page-number\">$page</div>\n";
-    $html .= '<div class="clear"></div>' . "\n";
     return $html;
 }
 
