@@ -101,12 +101,38 @@ pre{
   background-color:#ddd;
   padding:1em;
   border:1px solid #999;
-  font-size:12.5px;
-  overflow: auto;
 }
 
 code {
+  font-size: 14px;
   font-family:"Monaco", monospace;
+}
+
+pre code {
+  font-size:12.5px;
+  overflow:scroll;
+}
+
+table {
+  font-size:12px;
+  border: #333 1px solid;
+  border-collapse: collapse;
+  font-size: 11px;
+  th {
+    background-color: #666;
+    border: #ccc 1px dotted;
+    color:#fff;
+    vertical-align: top;
+    text-align: left;
+    padding: 10px;
+  }
+  td { 
+    background-color: #eee;
+    border: #ccc 1px dotted;
+    vertical-align: top;
+    text-align: left;
+    padding: 10px;
+  }
 }
 
 #footer {

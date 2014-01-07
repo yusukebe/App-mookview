@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Plack::Request;
 use Path::Tiny qw/path/;
-use Text::Markdown::Hoedown qw/markdown/;
+use Text::Markdown::Discount qw/markdown/;
 use Text::Xslate qw/mark_raw/;
 use Number::Format qw/format_number/;
 use File::ShareDir qw/dist_dir/;

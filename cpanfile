@@ -2,7 +2,7 @@ requires 'perl', '5.008001';
 
 requires 'Plack';
 requires 'Path::Tiny';
-requires 'Text::Markdown::Hoedown';
+requires 'Text::Markdown::Discount';
 requires 'Text::Xslate';
 requires 'File::ShareDir';
 requires 'Try::Tiny';
