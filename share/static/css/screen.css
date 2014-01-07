@@ -166,16 +166,16 @@ pre {
   background-color: #ddd;
   padding: 1em;
   border: 1px solid #999;
+  overflow: scroll;
+}
+pre code {
+  font-size: 12.5px;
+  font-family: "Monaco", monospace;
 }
 
 code {
   font-size: 14px;
   font-family: "Monaco", monospace;
-}
-
-pre code {
-  font-size: 12.5px;
-  overflow: scroll;
 }
 
 table {
