@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/yusukebe/App-mookview.png?branch=master)](https://travis-ci.org/yusukebe/App-mookview)
 # NAME
 
 App::mookview - View Markdown texts as a "Mook-Book"

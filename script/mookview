@@ -4,7 +4,7 @@ use warnings;
 use App::mookview;
 use Plack::Runner;
 
-my $mookview = App::mookview->new(shift);
+my $mookview = App::mookview->new(pop);
 my $app = $mookview->psgi_app();
 
 my $runner = Plack::Runner->new;
