@@ -116,11 +116,33 @@ App::mookview - View Markdown texts as a "Mook-Book" style
 
 =head1 SYNOPSIS
 
-    mookview [plackup options] markdown_text.md
+    mookview text.md
+
+Then open "http://localhost:5000/" with your web-browser.
+
+You can use "plackup options" in command line.
+
+    mookview --port 9000 text.md
 
 =head1 DESCRIPTION
 
 App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-book".
+
+"mookview" command is useful when you are writing a book using Markdown format.
+
+=head2 Features
+
+=over 4
+
+=item * 2-cloumns page layouts
+
+=item * count characters
+
+=item * support fenced code blocks in Markdown.
+
+=item * use the new font in OSX "mervricks"
+
+=back
 
 =head1 INSTALL
 

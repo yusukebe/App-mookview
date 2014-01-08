@@ -21,7 +21,7 @@ mookview - run a web application showing Markdown texts as a "Mook-book"
 
 =head1 SYNOPSIS
 
-    mookview [plackup options] markdown_text.md
+    mookview [plackup options] text.md
 
 =head1 LICENSE
 
