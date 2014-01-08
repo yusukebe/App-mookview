@@ -144,16 +144,6 @@ App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-bo
 
 =back
 
-=head1 INSTALL
-
-From CPAN
-
-    cpanm App::mookview
-
-From GitHub
-
-    cpanm git@github.com:yusukebe/App-mookview.git
-
 =head1 LICENSE
 
 Copyright (C) Yusuke Wada.

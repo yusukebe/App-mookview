@@ -26,16 +26,6 @@ App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-bo
 - support fenced code blocks in Markdown
 - use the new font in OSX "mervricks"
 
-# INSTALL
-
-From CPAN
-
-    cpanm App::mookview
-
-From GitHub
-
-    cpanm git@github.com:yusukebe/App-mookview.git
-
 # LICENSE
 
 Copyright (C) Yusuke Wada.

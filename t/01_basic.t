@@ -15,6 +15,19 @@ ok $not_found_response;
 my $css_response = $app->return_css('/css/screen.css');
 ok $css_response;
 
+my $code_block = $app->filter_markdown(<<'EOF');
+```
+my $foo = Foo->new();
+$foo->bar();
+```
+EOF
+is $code_block, <<'EOF'
+    my $foo = Foo->new();
+    $foo->bar();
+
+EOF
+;
+
 my $markdown_response = $app->return_markdown();
 ok $markdown_response;
 
