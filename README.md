@@ -23,7 +23,7 @@ App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-bo
 
 - 2-cloumns page layouts
 - count characters
-- support fenced code blocks in Markdown.
+- support fenced code blocks in Markdown
 - use the new font in OSX "mervricks"
 
 # INSTALL
