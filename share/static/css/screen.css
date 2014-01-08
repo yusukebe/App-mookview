@@ -166,7 +166,7 @@ pre {
   background-color: #ddd;
   padding: 1em;
   border: 1px solid #999;
-  overflow: scroll;
+  overflow: auto;
 }
 pre code {
   font-size: 12.5px;
