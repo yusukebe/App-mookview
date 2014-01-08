@@ -128,19 +128,19 @@ You can use "plackup options" in command line.
 
 App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-book".
 
-"mookview" command is useful when you are writing a book using Markdown format.
+"mookview command" is useful when you are writing a book using Markdown format.
 
 =head2 Features
 
 =over 4
 
-=item * 2-cloumns page layouts
+=item * 2 columns page layouts
 
 =item * count characters
 
 =item * support fenced code blocks in Markdown
 
-=item * use the new font in OSX "mervricks"
+=item * use the new font in OSX "mervericks"
 
 =back
 

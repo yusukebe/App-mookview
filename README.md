@@ -17,14 +17,14 @@ You can use "plackup options" in command line.
 
 App::mookview is Plack/PSGI application for viewing Markdown texts as a "Mook-book".
 
-"mookview" command is useful when you are writing a book using Markdown format.
+"mookview command" is useful when you are writing a book using Markdown format.
 
 ## Features
 
-- 2-cloumns page layouts
+- 2 columns page layouts
 - count characters
 - support fenced code blocks in Markdown
-- use the new font in OSX "mervricks"
+- use the new font in OSX "mervericks"
 
 # LICENSE
 
