@@ -68,7 +68,7 @@ sub return_markdown {
     my $text = $self->{file_path}->slurp_utf8();
     $text = $self->filter_markdown($text);
     my $stock = '';   my $page = 1;  my $content = '';
-    my $limit = 1000;
+    my $limit = 1100;
     for my $t (split /\n/, $text) {
         $stock .= $t . "\n";
         if (length $stock > $limit) {
