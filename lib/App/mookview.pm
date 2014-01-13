@@ -66,6 +66,7 @@ sub return_css {
 sub return_markdown {
     my ($self, $path) = @_;
     my $text = $self->{file_path}->slurp_utf8();
+    my $length = format_number(length $text);
     $text = $self->filter_markdown($text);
     my $stock = '';   my $page = 1;  my $content = '';
     my $limit = 1100;
@@ -78,7 +79,6 @@ sub return_markdown {
         }
     }
     $content = $self->add_markdown_to_html($content, $stock, $page);
-    my $length = format_number(length $text);
     my $html = $self->{xslate}->render('preview.tx', { content => mark_raw($content), length => $length });
     $html = encode_utf8($html);
     return [200, [
