@@ -79,7 +79,11 @@ sub return_markdown {
         }
     }
     $content = $self->add_markdown_to_html($content, $stock, $page);
-    my $html = $self->{xslate}->render('preview.tx', { content => mark_raw($content), length => $length });
+    my $html = $self->{xslate}->render('preview.tx', {
+        content => mark_raw($content),
+        filename => $self->{file_path}->basename,
+        length => $length
+    });
     $html = encode_utf8($html);
     return [200, [
         'Content-Type' => 'text/html; charset=utf8',
@@ -100,7 +104,7 @@ sub filter_markdown {
 sub add_markdown_to_html {
     my ($self, $html, $markdown, $page) = @_;
     $html .= '<div class="page">' . markdown($markdown) . "</div>\n";
-    $html .= "<div class=\"page-number\">$page</div>\n";
+    $html .= "<div class=\"page-number\"><span>$page</span></div>\n";
     return $html;
 }
 
