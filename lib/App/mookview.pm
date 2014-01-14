@@ -12,7 +12,7 @@ use Plack::App::Directory;
 use Try::Tiny;
 use Encode;
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 sub new {
     my $class = shift;
